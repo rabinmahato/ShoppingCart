@@ -83,8 +83,8 @@ class Modal extends Component {
                                 <div>
                                     <h4>{ this.props.cartItem.itemBrand }</h4>
                                     <div className="colors-available">
-                                        <div className="color-box color-blue color-selected"></div>
-                                        <div className="color-box color-grey"></div>
+                                        <div className="color-box color-blue color-selected" role="button"></div>
+                                        <div className="color-box color-grey" role="button"></div>
                                     </div>
                                 </div>
                                 

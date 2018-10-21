@@ -9,6 +9,7 @@ const cartListItems = (props) => {
             { props.cartItems.map((ele, key)=>
                 <CartListItem 
                 key={ele.key}
+                itemId={ele.id}
                 imageURL={ele.imageURL}
                 itemName={ele.name}
                 itemStyle={ele.style}
