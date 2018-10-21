@@ -1,12 +1,11 @@
 import React from 'react';
-import item1Image from '../../assets/item1.jpeg';
 
 const cartListItem = (props) => (
     <li>
         <article className="flex-row cart-list-item">
             <div className="items-layout">
                 <div className="items-image">
-                    <img src={item1Image} alt={props.itemName} className="image-responsive"  tabIndex="1"/>
+                    <img src={props.imageURL} alt={props.itemName} className="image-responsive"  tabIndex="1"/>
                 </div>
                 <div className="items-description">
                     <h3 tabIndex="1">{props.itemName}</h3>

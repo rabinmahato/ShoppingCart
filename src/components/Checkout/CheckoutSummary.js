@@ -4,13 +4,13 @@ import {connect} from 'react-redux';
 class CheckoutSummary extends Component{
     render(){
         return (
-            <div className="container-chekout">
+            <div className="container-chekout" role="checkout container">
                 <div className="promotion-code-layoout">
                     <div className="promo-label">
                         <label htmlFor="promotioncode" tabIndex="2">ENTER PROMOTION CODE OR GIFT CARD</label>
                     </div>
                     <div className="promo-input">
-                        <input type="text" id="pcode" name="promotioncode" tabIndex="2"/>
+                        <input type="text" id="promotioncode" name="promotioncode" tabIndex="2" />
                         <input type="button" className="button" value="APPLY" tabIndex="2" aria-label="Apply promotion code"/>
                     </div>
                 </div>
@@ -38,7 +38,7 @@ class CheckoutSummary extends Component{
                         <span className="prce-text-font"><small>$</small>{(this.props.totalPrice - this.props.couponDiscount).toFixed(2)}</span>
                     </div>
                 </div>
-                <div className="checkout-actions">
+                <div className="checkout-actions" role="checkout-action">
                     <a href="https://www.continueshipping.com" className="continueshipping">CONTINUE SHIPPING</a>
                     <input type="button" className="button btn-blue" value="CHECKOUT"/>
                 </div>

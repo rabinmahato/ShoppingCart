@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import Aux from '../../../hoc/AuxBox';
 import { connect } from 'react-redux';
 import * as actionTypes from '../../../store/actions';
-import item2Image from '../../../assets/item1.jpeg';
 
 class Modal extends Component {
     constructor(props){
@@ -110,7 +109,7 @@ class Modal extends Component {
                                 <div><a href="/ProductDetails">See product details</a></div>
                             </article>
                             <div className="product-image">
-                                <img src={item2Image} alt="Item 1" className="image-responsive"/>
+                                <img src={this.props.cartItem.imageURL} alt={this.props.cartItem.itemName} className="image-responsive"/>
                             </div>
                         </section>
                     </div>    
