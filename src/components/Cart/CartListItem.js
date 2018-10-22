@@ -10,7 +10,7 @@ const cartListItem = (props) => (
                 <div className="items-description">
                     <h3 tabIndex="1">{props.itemName}</h3>
                     <span className="font-small" tabIndex="1">Style #:{props.itemStyle}</span>
-                    <span className="font-small" tabIndex="1">Color: {props.itemColor}</span>
+                    <span className="font-small capitalise" tabIndex="1">Color: {props.itemColor}</span>
                     <span className="font-small row-hide-mobile" tabIndex="1">Size: {props.itemSize}</span>
                     <span className="qty-desc row-hide-mobile" tabIndex="1" aria-label={"Quantity" + props.itemQuantity}>QTY: <strong className="qty-box">{props.itemQuantity}</strong></span>
                     <span className="prce-text-font row-hide-mobile" tabIndex="1"><small>$</small >{props.itemPrice.toFixed(2)}</span>

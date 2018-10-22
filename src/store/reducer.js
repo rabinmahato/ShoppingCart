@@ -40,6 +40,7 @@ const reducer = ( state = initialState, action ) => {
                     itemId = action.updatedData.cartItem.itemId;
                     aCartItemsCopied[index].size = action.updatedData.selectedSize;
                     aCartItemsCopied[index].quantity = action.updatedData.selectedQuantity;
+                    aCartItemsCopied[index].color = action.updatedData.selectedColor;
                     totalPrice += (action.updatedData.selectedQuantity * aCartItemsCopied[index].unitPrice);
                 } else {
                     totalPrice += (aCartItemsCopied[index].quantity * aCartItemsCopied[index].unitPrice);
@@ -49,7 +50,7 @@ const reducer = ( state = initialState, action ) => {
             const oPyaload = {
                 "availableSizes": action.updatedData.cartItem.itemAvailableSizes,
                 "brand": action.updatedData.cartItem.itemBrand,
-                "color": action.updatedData.cartItem.itemColor,
+                "color": action.updatedData.selectedColor,
                 "imageURL": action.updatedData.cartItem.imageURL,
                 "key": action.updatedData.cartItem.itemAvailableSizes,
                 "maxQuantity": action.updatedData.cartItem.itemMaxQuantity,

@@ -304,16 +304,23 @@ select {
   margin-bottom: 14px;
   align-items: center;
 }
+.capitalise{
+  text-transform: capitalize;
+}
 .color-box{
   height: 24px;
   width: 24px;
   margin: 0 3px;
+  cursor: pointer;
 }
 .color-box.color-blue{
   background-color: #182f55;
 }
 .color-box.color-grey{
   background-color: #cfcfd1;
+}
+.color-box.color-red{
+  background-color: #c30505;
 }
 .color-selected{
   height: 28px;
