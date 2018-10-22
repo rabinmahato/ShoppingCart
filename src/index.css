@@ -113,7 +113,7 @@
 .cart-lists ul>li:last-child{
   border-bottom: 5px solid var(--main-border-color);
 }
-.row-hide-mobile{
+.row-hide-mobile {
   display: none;
 }
 .checkout-container{
@@ -319,6 +319,9 @@ select {
   height: 28px;
   width: 28px;
 }
+.sign-in-massage{
+  display: none;
+}
 
 @media (max-width: 768px){
   .size-layout, .quantity-layout, .price-layout, .cart-header-item, .container-contuct-us{
@@ -484,6 +487,9 @@ select {
   }
   body *{
     outline: none;
+  }
+  .sign-in-massage{
+    display: flex;
   }
 }
 
