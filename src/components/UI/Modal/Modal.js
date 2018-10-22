@@ -89,14 +89,13 @@ class Modal extends Component {
                                 </div>
                                 
                                 <div className="select-box">
-                                    <select name="produt-size" onChange={this.onProductSizeChange} value={selectedSize}>                                    
-                                        <option value="QTY">QTY</option>
+                                    <select name="produt-size" onChange={this.onProductSizeChange} value={selectedSize} aria-description="Select size">                                    
                                         { this.props.cartItem.itemAvailableSizes.map((ele, index)=>{
                                             return <option key={ this.props.cartItem.itemStyle + ele } value={ele}>{ele}</option>;
                                             })
                                         }
                                     </select>
-                                    <select id="qty-select" name="produt-qty" onChange={this.onProductQuanityChange} value={selectedQuantity}>
+                                    <select id="qty-select" name="produt-qty" onChange={this.onProductQuanityChange} value={selectedQuantity} aria-description="Select quantity">
                                         { 
                                             aQuantitySelectOptionsArray.map((ele, index)=>
                                             {
