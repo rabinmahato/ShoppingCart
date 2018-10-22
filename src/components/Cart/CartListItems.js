@@ -19,6 +19,7 @@ const cartListItems = (props) => {
                 itemUnitPrice={ele.unitPrice}
                 itemPrice={ele.unitPrice * ele.quantity}
                 itemAvailableSizes={ele.availableSizes}
+                itemAvailableColors={ele.availableColors}
                 itemBrand={ele.brand}
                 itemMaxQuantity={ele.maxQuantity}
                 cartEditDialogOpen={props.cartEditDialogOpen}

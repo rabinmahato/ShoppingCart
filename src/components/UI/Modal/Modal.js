@@ -93,7 +93,7 @@ class Modal extends Component {
                                 <div>
                                     <h4>{ this.props.cartItem.itemBrand }</h4>
                                     <div className="colors-available">
-                                        {["blue", "grey", "red"].map((ele)=>{
+                                        { this.props.cartItem.itemAvailableColors.map((ele)=>{
                                             return selectedColor === ele ? 
                                             <div key={ ele + Math.random()*10 } className={`color-box color-${ele} color-selected` } onClick={()=>this.changeColor(ele)} role="button"></div> :
                                             <div key={ ele + Math.random()*10 } className={`color-box color-${ele}`} onClick={()=>this.changeColor(ele)} role="button"></div>                                            

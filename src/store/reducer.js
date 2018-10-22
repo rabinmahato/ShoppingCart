@@ -49,6 +49,7 @@ const reducer = ( state = initialState, action ) => {
             //Update item in db
             const oPyaload = {
                 "availableSizes": action.updatedData.cartItem.itemAvailableSizes,
+                "availableColors": action.updatedData.cartItem.itemAvailableColors,
                 "brand": action.updatedData.cartItem.itemBrand,
                 "color": action.updatedData.selectedColor,
                 "imageURL": action.updatedData.cartItem.imageURL,
