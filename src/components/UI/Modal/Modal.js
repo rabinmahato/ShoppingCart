@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Aux from '../../../hoc/AuxBox';
 import { connect } from 'react-redux';
-import * as actionTypes from '../../../store/actions';
+import * as actionTypes from '../../../store/action/';
 
 class Modal extends Component {
     constructor(props){
@@ -125,10 +125,7 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch => {
     return {
         onUpdateEditedData: (oItemsDetails) => {
-            dispatch({
-                type: actionTypes.UPDATE_CART_ITEM,
-                updatedData: oItemsDetails
-            });
+            dispatch(actionTypes.updateCartItemToDB(oItemsDetails));
         }
     }
 }

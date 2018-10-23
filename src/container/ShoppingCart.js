@@ -7,7 +7,7 @@ import CartHeader from '../components/Cart/CartHeader';
 import CartListItems from '../components/Cart/CartListItems';
 import Cart from '../components/Cart/Cart';
 import Aux from '../hoc/AuxBox';
-import * as actionTypes from '../store/actions';
+import * as actionTypes from '../store/action/';
 import { connect } from 'react-redux';
 import axios from '../items-axios';
 import Spinner from '../components/UI/Spinner/Spinner';
@@ -16,27 +16,11 @@ class ShoppingCart extends Component {
     constructor(props){
         super(props);
         this.state = {
-            loading : true,
             showEditModal: false
         }
     }
     componentDidMount(){
-        axios.get('/shoppingcart-6df6b.json')
-        .then(res => {
-            const fetchedItems = [];
-            for (let key in res.data) {
-                fetchedItems.push({
-                    ...res.data[key],
-                    id: key
-                });
-            }
-            this.setState({loading: false},()=>{
-                this.props.onItemsFetched(fetchedItems);
-            });
-        })
-        .catch(err => {
-            this.setState({loading: false});
-        });
+        this.props.onFetchCartItems();
     }
 
     /* Dialog open handler for cart item edit */
@@ -71,24 +55,25 @@ class ShoppingCart extends Component {
         </Aux>);
 
         return (
-            this.state.loading ? <div><Spinner/></div> : oShoppingCart
+            this.props.loading ? <div><Spinner/></div> : oShoppingCart
         )
     }
 }
 
 const mapStateToProps = state => {
     return {
-        cartItems: state.cartItems
+        cartItems: state.cartItems,
+        loading: state.loading
     };
 }
 
 const mapDispatchToProps = dispatch => {
     return {
         onEditDialogUpdate: (oItemsDetails) => {
-            dispatch({type: actionTypes.UPDATE_EDIT_DIALOG, item: oItemsDetails});
+            dispatch(actionTypes.updateEditDialog(oItemsDetails));
         },
-        onItemsFetched: (aFetchedItems) => {
-            dispatch({type: actionTypes.UPDATE_FETCHED_ITEMS, items: aFetchedItems});
+        onFetchCartItems: (aFetchedItems) => {
+            dispatch(actionTypes.fetchCartItems());
         }
     }
 }

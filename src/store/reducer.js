@@ -1,4 +1,4 @@
-import * as actionTypes from './actions';
+import * as actionTypes from './action/actions';
 import axios from '../items-axios';
 
 const initialState = {
@@ -6,11 +6,24 @@ const initialState = {
     totalPrice: 0,
     couponDiscount: 7.00,
     editDialogDetails:{},
+    loading: false
 };
 
 const reducer = ( state = initialState, action ) => {
     let totalPrice;
     switch ( action.type ) {
+        case actionTypes.START_SPINNER:
+            return {
+                ...state,
+                loading: true
+            };
+        
+        case actionTypes.START_SPINNER:
+            return {
+                ...state,
+                loading: true
+            }; 
+
         case actionTypes.UPDATE_EDIT_DIALOG:
             return {
                 ...state,
@@ -27,17 +40,15 @@ const reducer = ( state = initialState, action ) => {
             return {
                 ...state,
                 cartItems : action.items,
-                totalPrice
+                totalPrice,
+                loading: false
             };
 
         case actionTypes.UPDATE_CART_ITEM:
             const aCartItemsCopied = Array.from(state.cartItems);
-            let itemId;
             totalPrice = 0;
-
             for(let index = 0; index < aCartItemsCopied.length; index++){                
                 if(aCartItemsCopied[index].id == action.updatedData.cartItem.itemId){
-                    itemId = action.updatedData.cartItem.itemId;
                     aCartItemsCopied[index].size = action.updatedData.selectedSize;
                     aCartItemsCopied[index].quantity = action.updatedData.selectedQuantity;
                     aCartItemsCopied[index].color = action.updatedData.selectedColor;
@@ -46,34 +57,12 @@ const reducer = ( state = initialState, action ) => {
                     totalPrice += (aCartItemsCopied[index].quantity * aCartItemsCopied[index].unitPrice);
                 }
             }
-            //Update item in db
-            const oPyaload = {
-                "availableSizes": action.updatedData.cartItem.itemAvailableSizes,
-                "availableColors": action.updatedData.cartItem.itemAvailableColors,
-                "brand": action.updatedData.cartItem.itemBrand,
-                "color": action.updatedData.selectedColor,
-                "imageURL": action.updatedData.cartItem.imageURL,
-                "key": action.updatedData.cartItem.itemAvailableSizes,
-                "maxQuantity": action.updatedData.cartItem.itemMaxQuantity,
-                "name": action.updatedData.cartItem.itemName,
-                "quantity": action.updatedData.selectedQuantity,
-                "size": action.updatedData.selectedSize,
-                "style": action.updatedData.cartItem.itemStyle,
-                "unitPrice": action.updatedData.cartItem.itemUnitPrice,
-                "key": action.updatedData.cartItem.itemStyle
-            }
-            axios.put(`/shoppingcart-6df6b/${itemId}.json`, oPyaload)
-            .then(response => {
-                console.log('Data updated ', response);
-            })
-            .catch(error => {
-                console.log(error);
-            });
 
             return {
                 ...state,
                 cartItems: aCartItemsCopied,
-                totalPrice : totalPrice
+                totalPrice,
+                loading: false
             };
 
         default:
