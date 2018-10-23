@@ -7,41 +7,25 @@ class Modal extends Component {
     constructor(props){
         super(props); 
         this.state={
-            selectedSize: this.props.cartItem.itemSize,
-            selectedQuantity: this.props.cartItem.itemQuantity,
-            selectedColor: "",
-            iDialogOpened: false
+            selectedSize: null,
+            selectedQuantity: null,
+            selectedColor: ""
         } 
         this.onProductSizeChange = this.onProductSizeChange.bind(this);
         this.onProductQuanityChange = this.onProductQuanityChange.bind(this);
     }
     
     static getDerivedStateFromProps(nextProps, prevState){
-        if(!nextProps.show){
-            return {
-                ...prevState,
-                iDialogOpened : false
-            }
-        }
-        if(!prevState.iDialogOpened && (nextProps.cartItem.itemSize !== prevState.selectedSize || nextProps.cartItem.itemQuantity !== prevState.selectedQuantity |
-            nextProps.cartItem.itemColor != prevState.selectedColor)){
+         if(Object.keys(nextProps.cartItem).length && (nextProps !== prevState.prevPropsList)){
             return {
                 ...prevState,
                 selectedSize : nextProps.cartItem.itemSize,
                 selectedQuantity : nextProps.cartItem.itemQuantity,
                 selectedColor: nextProps.cartItem.itemColor.toLowerCase(),
-                iDialogOpened : true
-            }
-        }
-        if(!prevState.iDialogOpened && (nextProps.cartItem.itemSize == prevState.selectedSize || nextProps.cartItem.itemQuantity == prevState.selectedQuantity ||
-            nextProps.cartItem.itemColor == prevState.selectedColor)){
-            return {
-                ...prevState,
-                iDialogOpened : true
+                prevPropsList: nextProps
             }
         }
         return null;
-
     }
     // change handler for product select
     onProductSizeChange(event){
