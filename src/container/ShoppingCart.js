@@ -9,7 +9,6 @@ import Cart from '../components/Cart/Cart';
 import Aux from '../hoc/AuxBox';
 import * as actionTypes from '../store/action/';
 import { connect } from 'react-redux';
-import axios from '../items-axios';
 import Spinner from '../components/UI/Spinner/Spinner';
 
 class ShoppingCart extends Component {
