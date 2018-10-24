@@ -46,7 +46,7 @@ export const updateCartItemToDB = (oItemsDetails) => {
             console.log('Data updated ', response);
         })
         .catch(error => {
-            console.log(error);
+            dispatch(stopSpinner());
         });
     }
 }
@@ -73,7 +73,7 @@ export const fetchCartItems = () => {
             dispatch(updateFetchedItems(fetchedItems));
         })
         .catch(err => {
-            dispatch(startSpinner());
+            dispatch(stopSpinner());
         });
     }
 }

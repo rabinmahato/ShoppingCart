@@ -330,6 +330,7 @@ select {
   display: none;
 }
 
+/* CSS styles for tablet devices */
 @media (max-width: 768px){
   .size-layout, .quantity-layout, .price-layout, .cart-header-item, .container-contuct-us{
       display: none;
@@ -393,7 +394,9 @@ select {
     outline: none;
   }
 }
-@media (max-width: 500px){
+
+/* CSS styles for small devices */
+@media (max-width: 480px){
   .flex-row{
       flex-direction: column;
   }
