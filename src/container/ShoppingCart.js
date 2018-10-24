@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import Modal from '../components/UI/Modal/Modal';
+import Modal from '../components/UI/Modal/Modal1';
+import EditModalContent from '../container/EditItemDialogContent';
 import CheckoutSummary from '../components/Checkout/CheckoutSummary';
 import ContatUsContainer from '../components/Checkout/ContuctUs';
 import CheckoutContiner from '../components/Checkout/CheckoutContiner';
@@ -10,6 +11,7 @@ import Aux from '../hoc/AuxBox';
 import * as actionTypes from '../store/action/';
 import { connect } from 'react-redux';
 import Spinner from '../components/UI/Spinner/Spinner';
+import {Context, oAppContext} from '../context/Context';
 
 class ShoppingCart extends Component {
     constructor(props){
@@ -19,12 +21,14 @@ class ShoppingCart extends Component {
         }
     }
     componentDidMount(){
+        //Fetch all the initial cart items
         this.props.onFetchCartItems();
     }
 
     /* Dialog open handler for cart item edit */
     openEditDialog = (oItemDetails)=> {
         this.setState({showEditModal: true});
+        //Update selected item to redux
         this.props.onEditDialogUpdate(oItemDetails);
     }
     /* Dialog close handler for cart item edit */
@@ -35,7 +39,9 @@ class ShoppingCart extends Component {
 
     render() {
         const oShoppingCart=(   
-        <Aux>
+        <Context    value={{
+                    dialogClose : this.fnDialogClose
+        }}>
             <main role="Cart">
                 <Cart>
                     <CartHeader itemCount={this.props.cartItems.length}/>
@@ -49,9 +55,11 @@ class ShoppingCart extends Component {
                     <CheckoutSummary/>
                 </CheckoutContiner>
             </main>
-            <Modal show={this.state.showEditModal} 
-                dialogClose={this.fnDialogClose}/>
-        </Aux>);
+            <Modal  show={this.state.showEditModal} 
+                    dialogClose={this.fnDialogClose}>
+                    <EditModalContent />
+            </Modal>
+        </Context>);
 
         return (
             this.props.loading ? <div><Spinner/></div> : oShoppingCart
