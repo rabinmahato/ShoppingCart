@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Modal from '../components/UI/Modal/Modal1';
+import Modal from '../components/UI/Modal/Modal';
 import EditModalContent from '../container/EditItemDialogContent';
 import CheckoutSummary from '../components/Checkout/CheckoutSummary';
 import ContatUsContainer from '../components/Checkout/ContuctUs';
