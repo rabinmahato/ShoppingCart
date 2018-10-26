@@ -11,7 +11,7 @@ import Aux from '../hoc/AuxBox';
 import * as actionTypes from '../store/action/';
 import { connect } from 'react-redux';
 import Spinner from '../components/UI/Spinner/Spinner';
-import {Context, oAppContext} from '../context/Context';
+import {Context} from '../context/Context';
 
 class ShoppingCart extends Component {
     constructor(props){
