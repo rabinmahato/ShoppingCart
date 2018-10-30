@@ -270,7 +270,6 @@ article.container-contuct-us > div{
   display: flex;    
 }
 .product-image{
-  flex-basis: 40%;
   text-align: center;
 }
 .product-details{
@@ -417,6 +416,9 @@ select {
   .items-image {
     height: 90%;
   }
+  .modal-content{
+    height: 470px; 
+  }
 }
 
 /* CSS styles for small devices */
@@ -537,6 +539,9 @@ select {
   }
   .items-image {
     height: 90%;
+  }
+  .modal-content{
+    height: 470px; 
   }
 }
 
