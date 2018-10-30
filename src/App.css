@@ -11,4 +11,6 @@ body {
   font-family: 'Open Sans', sans-serif;
   font-style: normal;
 }
-
+#root{
+  min-width: 300px;
+}
