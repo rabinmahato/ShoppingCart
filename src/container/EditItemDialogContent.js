@@ -76,8 +76,12 @@ class EditModalContent extends Component {
                                     <div className="colors-available">
                                         { this.props.cartItem.itemAvailableColors.map((ele)=>{
                                             return selectedColor === ele ? 
-                                            <div key={ ele + Math.random()*10 } className={`color-box color-${ele} color-selected` } onClick={()=>this.changeColor(ele)} role="button"></div> :
-                                            <div key={ ele + Math.random()*10 } className={`color-box color-${ele}`} onClick={()=>this.changeColor(ele)} role="button"></div>                                            
+                                            <div key={ ele + Math.random()*10 } className={`color-box color-${ele} color-selected` }
+                                                 onClick={()=>this.changeColor(ele)} onKeyPress={(evt) => { if(evt.charCode == 13) this.changeColor(ele) }} 
+                                                 role="button" tabIndex="0" aria-label={"Change color" + ele}></div> :
+                                            <div key={ ele + Math.random()*10 } className={`color-box color-${ele}`}
+                                                 onClick={()=>this.changeColor(ele)} onKeyPress={(evt) => { if(evt.charCode == 13) this.changeColor(ele) }} 
+                                                 role="button" tabIndex="0" aria-label={"Change color" + ele}></div>                                            
                                         })}
                                     </div>
                                 </div>

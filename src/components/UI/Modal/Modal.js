@@ -4,6 +4,9 @@ class Modal extends Component {
     constructor(props){
         super(props); 
     }
+    componentDidUpdate(){
+        if(this.refs.modalRef) this.refs.modalRef.focus();
+    }
     render () {
         return (
             this.props.show ? 
@@ -11,7 +14,7 @@ class Modal extends Component {
                 {/* The Modal */}
                 <div className="modal" role="dialog">
                    {/*  Modal content */}
-                    <div className="modal-content">
+                    <div className="modal-content"  ref="modalRef">
                         {/*  Modal close button */}
                         <div><span className="close" onClick={()=>this.props.dialogClose()}>&times;</span></div>                        
                         {this.props.children}

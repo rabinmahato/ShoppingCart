@@ -1,5 +1,4 @@
 import * as actionTypes from './action/actions';
-import axios from '../items-axios';
 
 const initialState = {
     cartItems : [],
@@ -48,7 +47,7 @@ const reducer = ( state = initialState, action ) => {
             const aCartItemsCopied = Array.from(state.cartItems);
             totalPrice = 0;
             for(let index = 0; index < aCartItemsCopied.length; index++){                
-                if(aCartItemsCopied[index].id == action.updatedData.cartItem.itemId){
+                if(aCartItemsCopied[index].id === action.updatedData.cartItem.itemId){
                     aCartItemsCopied[index].size = action.updatedData.selectedSize;
                     aCartItemsCopied[index].quantity = action.updatedData.selectedQuantity;
                     aCartItemsCopied[index].color = action.updatedData.selectedColor;
