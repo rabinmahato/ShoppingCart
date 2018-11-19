@@ -16,10 +16,8 @@ const cartListItem = (props) => (
                     <span className="prce-text-font row-hide-mobile" tabIndex="1"><small>$</small >{props.itemPrice.toFixed(2)}</span>
                 </div>
                 <div className="items-actions">
-                    <span   className="action-button edit" 
-                            onClick={()=>props.cartEditDialogOpen(props)} 
-                            onKeyPress={(evt) => { if(evt.charCode == 13) props.cartEditDialogOpen(props) }}
-                            tabIndex="1" aria-label="Edit" role="button">EDIT</span>
+                    <span className="action-button edit" 
+                    onClick={()=>props.cartEditDialogOpen(props)} tabIndex="1" aria-label="Edit" role="button">EDIT</span>
                     <span className="separator"></span>
                     <span className="action-button" tabIndex="1" aria-label="Remove Item" role="button">&times; REMOVE</span>
                     <span className="separator"></span>

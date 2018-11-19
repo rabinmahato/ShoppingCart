@@ -3,7 +3,7 @@ import {connect} from 'react-redux';
 
 class Header extends Component{
     componentDidMount(){
-        //this.refs.header.scrollIntoViewIfNeeded();
+        this.refs.header.scrollIntoViewIfNeeded();
     }
     render(){
         return (

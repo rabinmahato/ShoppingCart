@@ -7,6 +7,7 @@ import CheckoutContiner from '../components/Checkout/CheckoutContiner';
 import CartHeader from '../components/Cart/CartHeader';
 import CartListItems from '../components/Cart/CartListItems';
 import Cart from '../components/Cart/Cart';
+import Aux from '../hoc/AuxBox';
 import * as actionTypes from '../store/action/';
 import { connect } from 'react-redux';
 import Spinner from '../components/UI/Spinner/Spinner';
@@ -22,12 +23,6 @@ class ShoppingCart extends Component {
     componentDidMount(){
         //Fetch all the initial cart items
         this.props.onFetchCartItems();
-        //ESC button event handler
-        document.addEventListener('keyup', (event) => {
-            if (event.which == 27) {
-                this.fnDialogClose() 
-            }
-        });
     }
 
     /* Dialog open handler for cart item edit */
